@@ -1,0 +1,16 @@
+#!/bin/sh
+#root -l -q 'findFailedJobs.C("Run2016B_JetHT_03Feb2017")'
+#root -l -q 'findFailedJobs.C("Run2016C_JetHT_03Feb2017")'
+#root -l -q 'findFailedJobs.C("Run2016D_JetHT_03Feb2017")'
+#root -l -q 'findFailedJobs.C("Run2016E_JetHT_03Feb2017")'
+#root -l -q 'findFailedJobs.C("Run2016F_JetHT_03Feb2017")'
+#root -l -q 'findFailedJobs.C("Run2016G_JetHT_03Feb2017")'
+#root -l -q 'findFailedJobs.C("Run2016H_JetHT_03Feb2017")'
+
+root -l -q 'findFailedJobs.C("Run2016B_03Feb2017_HTMHT")'
+root -l -q 'findFailedJobs.C("Run2016C_03Feb2017_HTMHT")'
+root -l -q 'findFailedJobs.C("Run2016D_03Feb2017_HTMHT")'
+root -l -q 'findFailedJobs.C("Run2016E_03Feb2017_HTMHT")'
+root -l -q 'findFailedJobs.C("Run2016F_03Feb2017_HTMHT")'
+root -l -q 'findFailedJobs.C("Run2016G_03Feb2017_HTMHT")'
+root -l -q 'findFailedJobs.C("Run2016H_03Feb2017_HTMHT")'

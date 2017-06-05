@@ -1,0 +1,23 @@
+Main code for making histograms from RA2Trees: LostMuon.cc. 
+These set of codes need only root, no need of CMSSW directly. You can set cmsenv(for using roott)and run the code. If cmsenv is not done, set it up( $ cmsrel; CMSSW_8_0_28;cd CMSSW_8_0_28/src/ ;cmsenv ; cd - )
+$ make
+$ ./lostMuon <inputRunFileList.txt> output.root <some_arg> # this runs on all files that are listed in inputRunFileList.txt. Usually, you do not need to do this, since you use condor for running on large number of files.
+
+Submitting jobs to condor:
+1. compile code(LostMuoun.cc, LostMuon.h, NtupleVariables.h, NtupleVariables.cc) using $ make
+2. $ ./submitMany.sh
+3. condor_q <usename>
+3.a. If you have submitted condor jobs more than once(i,e you have files named Run2016*_03Feb2017_HTMHT.root), then you may overwite files in the next step. To avoid that, have a look at exe.sh. This renames the files in the way you want.
+4. Once jobs have finished, $ ./Check_FailedJobsMany.sh
+5. If there are no failed jobs, you can clean up area: $ ./cleaUpBatchFiles.sh
+
+Plots are produced using $ ./makeHists.sh
+makeHists.sh:
+	root -l -b -q 'compHists.C("'$sample'")' # sample refers to histogram name.
+compHists.C:
+	Takes one arguement, which is higtogram name and plots that histogram for 2016B to 2016H runs and saves the plot in pdf format. Input root file names should be specified inside the macro.
+
+To combine pdf files:(works on desktop only. It needs pdftk to be installed)
+$ pdftk *.pdf cat output mergedfile.pdf
+$ mv *.pdf plots
+$ mv plots/mergedfile.pdf .
